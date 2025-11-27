@@ -95,9 +95,16 @@ class ReviewPreprocessor:
             if pd.isna(text) or text == '':
                 return ''
             text = str(text)
+            
+            # Remove non-English characters (Amharic, emojis, special characters)
+            # Keep only English letters (A-Z, a-z), numbers (0-9), and basic punctuation/spaces
+            text = re.sub(r'[^A-Za-z0-9\s.,!?\'"-]', '', text)   #text = re.sub(r'\s+', ' ', text)
+            
             text = re.sub(r'\s+', ' ', text)
             text = text.strip()
             return text
+
+
         self.df['review_text'] = self.df['review_text'].apply(clean_review_text)
         before_count = len(self.df)
         self.df = self.df[self.df['review_text'].str.len() > 0]

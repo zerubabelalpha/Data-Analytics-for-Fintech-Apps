@@ -1,2 +1,5 @@
 /data
 .env
+/scripts/__pycache__
+/config/__pycache__
+/notebooks/data

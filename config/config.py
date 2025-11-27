@@ -12,10 +12,10 @@ APP_IDS={
 BANK_NAMES={
     "CBE":"Commercial Bank of Ethiopia",
     "BOA":"Bank of Abissinia",
-    "Dashenbank":"Dashenbank"
+    "DashenBank":"Dashen Bank S.c."
 }
 
-SCRAPPING_CONFIG={
+SCRAPING_CONFIG={
     "reviews_per_bank":int(os.getenv("REVIEWS_PER_BANK",420)),
     "max_retries":int(os.getenv("MAX_RETRIES",3)),
     "lang":"en",

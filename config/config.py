@@ -23,10 +23,10 @@ SCRAPING_CONFIG={
 }
 
 DATA_PATHS={
-    "raw":"data/raw",
-    "processed":"data/processed",
-    "raw_reviews":"data/raw_reviews",
-    "processed_reviews":"data/processed_reviews",
-    "sentiment_results":"data/sentiment_results",
-    "final_results":"data/final_results"
+    'raw': 'data/raw',
+    'processed': 'data/processed',
+    'raw_reviews': 'data/raw/reviews_raw.csv',
+    'processed_reviews': 'data/processed/reviews_processed.csv',
+    'sentiment_results': 'data/processed/reviews_with_sentiment.csv',
+    'final_results': 'data/processed/reviews_final.csv'
 }

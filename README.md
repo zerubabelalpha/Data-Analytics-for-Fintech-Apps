@@ -41,7 +41,7 @@ This project illustrates a straightforward implementation of web scraping, data 
 
 go to the notebooks dir and excute the cells line by line.
 
-the output will be created inside notebooks dir data folder
+the output will be created inside notebooks dir inside folder /data 
 
 and if you want to scrap other fintec datas from playstore, create .env file and change the app_id and scraping configurations.
 

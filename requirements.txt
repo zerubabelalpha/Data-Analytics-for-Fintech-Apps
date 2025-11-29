@@ -3,3 +3,9 @@ google_play_scraper
 matplotlib
 seaborn
 python-dotenv
+gensim
+scikit-learn
+nltk
+textblob
+spacy
+numpy

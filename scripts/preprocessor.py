@@ -95,11 +95,13 @@ class ReviewPreprocessor:
             if pd.isna(text) or text == '':
                 return ''
             text = str(text)
+                
+            # Remove Amharic characters
+            text = re.sub(r'[\u1200-\u137F]', '', text)
             
-            # Remove non-English characters (Amharic, emojis, special characters)
-            # Keep only English letters (A-Z, a-z), numbers (0-9), and basic punctuation/spaces
-            text = re.sub(r'[^A-Za-z0-9\s.,!?\'"-]', '', text)   #text = re.sub(r'\s+', ' ', text)
-            
+            # Remove user mentions and special symbols but keep basic punctuation
+            text = re.sub(r'[@#$%^&*()_+={}\[\]|\\:;<>/]', '', text)
+                
             text = re.sub(r'\s+', ' ', text)
             text = text.strip()
             return text

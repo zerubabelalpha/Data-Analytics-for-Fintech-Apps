@@ -7,7 +7,7 @@ This project illustrates a straightforward implementation of web scraping, data 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [Contact](#contact)
+
 
 ## Installation
 

@@ -99,7 +99,7 @@ class ReviewPreprocessor:
             # Remove Amharic characters
             text = re.sub(r'[\u1200-\u137F]', '', text)
             
-            # Remove user mentions and special symbols but keep basic punctuation
+            # Remove special symbols but keep basic punctuation
             text = re.sub(r'[@#$%^&*()_+={}\[\]|\\:;<>/]', '', text)
                 
             text = re.sub(r'\s+', ' ', text)

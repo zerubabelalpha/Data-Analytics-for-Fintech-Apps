@@ -10,8 +10,8 @@ APP_IDS={
 }
 
 BANK_NAMES={
-    "CBE":"Commercial Bank of Ethiopia",
-    "BOA":"Bank of Abissinia",
+    "CBE":"Commercial Bank Of Ethiopia",
+    "BOA":"Bank Of Abissinia",
     "DashenBank":"Dashen Bank S.c."
 }
 

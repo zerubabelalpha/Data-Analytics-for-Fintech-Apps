@@ -30,3 +30,11 @@ DATA_PATHS={
     'sentiment_results': 'data/processed/reviews_with_sentiment.csv',
     'final_results': 'data/processed/reviews_final.csv'
 }
+
+DB_CONFIG_={
+    'DB_HOST':os.getenv('DB_HOST'),
+    'DB_PORT':os.getenv('DB_PORT'),
+    'DB_NAME':os.getenv('DB_NAME'),
+    'DB_USER':os.getenv('DB_USER'),
+    'DB_PASSWORD':os.getenv('DB_PASSWORD')
+}

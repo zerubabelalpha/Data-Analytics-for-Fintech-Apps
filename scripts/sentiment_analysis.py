@@ -112,6 +112,9 @@ class BankReviewAnalyzer:
         
         # Convert rating to sentiment label
         df_processed["sentiment_label"] = df_processed["rating"].apply(self.rating_to_label)
+
+        # Calculate sentiment score (average of TextBlob and VADER)
+        df_processed["sentiment_score"] = df_processed["review_text"].apply(self._calculate_sentiment_score)
         
         # Basic text cleaning
         df_processed["clean_text"] = df_processed["review_text"].str.lower()
@@ -127,6 +130,19 @@ class BankReviewAnalyzer:
         
         print(f"Preprocessing completed for {name}: {len(df_processed)} reviews")
         return df_processed
+    
+    def _calculate_sentiment_score(self, text: str) -> float:
+        """Calculate sentiment score from TextBlob and VADER"""
+        # TextBlob sentiment
+        tb_score = TextBlob(text).sentiment.polarity
+        
+        # VADER sentiment
+        vader_score = sia.polarity_scores(text)["compound"]
+        
+        # Combined score (average of both)
+        combined_score = (tb_score + vader_score) / 2
+        
+        return combined_score
     
     @staticmethod
     def rating_to_label(r):

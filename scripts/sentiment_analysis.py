@@ -23,7 +23,7 @@ def download_nltk_resources():
         print("NLTK download completed or already available")
 
 # run these once
-download_nltk_resources()
+#download_nltk_resources()
 sia = SentimentIntensityAnalyzer()
 
 # Make plots prettier

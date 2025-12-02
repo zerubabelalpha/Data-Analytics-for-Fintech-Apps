@@ -67,8 +67,6 @@ class PlayStoreScraper:
     def process_reviews(self, reviews_data, bank_code):
         
         # Process raw review data from the scraper into a clean dictionary format.
-        # Extracts only the relevant fields we need for analysis.
-        
         processed = []
 
         for review in reviews_data:
@@ -90,14 +88,7 @@ class PlayStoreScraper:
     
 
     def scrape_all_banks(self):
-       
-        # Main orchestration method:
-        # 1. Iterates through all configured banks
-        # 2. Fetches app metadata
-        # 3. Scrapes reviews for each bank
-        # 4. Combines all data into a single DataFrame
-        # 5. Saves the raw data to CSV
-        
+
         all_reviews = []
         app_info_list = []
 

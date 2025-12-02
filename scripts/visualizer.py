@@ -8,7 +8,6 @@ from wordcloud import WordCloud
 sns.set_style("whitegrid")
 plt.rcParams["figure.figsize"] = (12, 6)
 
-
 THEME_KEYWORDS = {
     "App Performance": [
         "crash", "freeze", "slow", "lag", "bug", "error", "update",

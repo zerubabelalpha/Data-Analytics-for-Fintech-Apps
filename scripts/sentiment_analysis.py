@@ -208,6 +208,7 @@ class BankReviewAnalyzer:
 
         return themes
  
+ 
     # ASSIGN THEMES TO EACH REVIEW
     def _assign_themes_to_reviews(self, df, themes):
         def identify_themes_for_text(text):

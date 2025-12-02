@@ -37,3 +37,31 @@ Stores user reviews with sentiment analysis.
 CREATE INDEX idx_reviews_bank_id ON reviews(bank_id);
 CREATE INDEX idx_reviews_date ON reviews(review_date);
 CREATE INDEX idx_reviews_sentiment ON reviews(sentiment_score);
+```
+
+## 🛠️ Installation
+1. Create the database:
+```sql
+CREATE DATABASE bank_reviews;
+```
+
+2. Run the schema:
+```sql
+\i schema.sql
+```
+
+## 📈 Data Model Diagram
+
+banks
+├── bank_id (PK)
+├── bank_name
+└── app_name
+    ↓
+reviews
+├── review_id (PK)
+├── bank_id (FK) → banks.bank_id
+├── review_text
+├── review_date
+├── sentiment_label
+├── sentiment_score
+└── source_

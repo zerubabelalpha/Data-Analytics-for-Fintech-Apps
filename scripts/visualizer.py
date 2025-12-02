@@ -185,21 +185,56 @@ class BankDataVisualizer:
         plt.tight_layout()
         plt.show()
 
+    # def plot_rating_distribution(self):
+    #     merged = self.df
+    #     fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+
+    #     sns.violinplot(data=merged, x="bank", y="rating", ax=axes[1])
+    #     axes[1].set_title("Rating Distribution — Violin")
+
+    #     for ax in axes:
+    #         ax.tick_params(axis="x", rotation=45)
+
+    #     plt.tight_layout()
+    #     plt.show()
     def plot_rating_distribution(self):
         merged = self.df
-        fig, axes = plt.subplots(1, 2, figsize=(16, 6))
-
-        sns.boxplot(data=merged, x="bank", y="rating", ax=axes[0])
-        axes[0].set_title("Rating Distribution — Boxplot")
-
-        sns.violinplot(data=merged, x="bank", y="rating", ax=axes[1])
-        axes[1].set_title("Rating Distribution — Violin")
-
-        for ax in axes:
-            ax.tick_params(axis="x", rotation=45)
-
+        fig, axes = plt.subplots(2, 2, figsize=(16, 12))
+        
+        # 1. Bar chart for average ratings
+        avg_ratings = merged.groupby("bank")["rating"].mean().sort_values(ascending=False)
+        axes[0, 0].bar(avg_ratings.index, avg_ratings.values)
+        axes[0, 0].set_title("Average Rating per Bank")
+        axes[0, 0].tick_params(axis="x", rotation=45)
+        axes[0, 0].set_ylabel("Average Rating")
+        
+        # 2. Violin plot
+        sns.violinplot(data=merged, x="bank", y="rating", ax=axes[0, 1])
+        axes[0, 1].set_title("Rating Distribution — Violin Plot")
+        axes[0, 1].tick_params(axis="x", rotation=45)
+        
+        # 3. Rating distribution histogram for all banks combined
+        axes[1, 0].hist(merged["rating"], bins=10, edgecolor='black', alpha=0.7)
+        axes[1, 0].set_title("Overall Rating Distribution (All Banks)")
+        axes[1, 0].set_xlabel("Rating")
+        axes[1, 0].set_ylabel("Frequency")
+        
+        # 4. Sentiment Pie Chart for all banks combined
+        if self.df is not None:
+            # Ensure sentiment_label exists for main dataframe
+            if 'sentiment_label' not in self.df.columns:
+                self.df = self._preprocess_dataframe(self.df, "combined")
+                
+            colors = ['#4CAF50', '#FFC107', '#F44336']  # Green, Yellow, Red
+            overall_sentiment = self.df['sentiment_label'].value_counts()
+            axes[1, 1].pie(overall_sentiment.values, labels=overall_sentiment.index, 
+                          autopct='%1.1f%%', colors=colors, startangle=90)
+            axes[1, 1].set_title('Overall Sentiment Distribution (All Banks)')
+        
         plt.tight_layout()
         plt.show()
+        
+        return fig
 
     def plot_keyword_clouds(self):
         for bank, df in self.bank_dfs.items():
@@ -209,6 +244,7 @@ class BankDataVisualizer:
             plt.axis("off")
             plt.title(f"Word Cloud — {bank}")
             plt.show()
+    
 
 # main 
     def run_all(self):

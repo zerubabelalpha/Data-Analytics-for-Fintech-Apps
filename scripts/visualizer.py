@@ -15,19 +15,24 @@ THEME_KEYWORDS = {
     ],
     "Navigation & UX": [
         "navigate", "menu", "interface", "design", "layout", "easy",
-        "user friendly", "intuitive"
+        "user friendly", "intuitive","app", "interface", "slow", "lag",
+          "layout", "usability","good", "dark mode", "update"
     ],
     "Customer Support": [
         "support", "call", "help", "service", "staff", "agent",
-        "branch", "respond", "response"
+        "branch", "respond", "response", "customer care",
+        "call center",   "rude", "assistance"
     ],
     "Transactions": [
         "transfer", "payment", "deposit", "withdraw", "transaction",
-        "processing", "delay", "pending"
+        "processing", "delay", "pending","transfer", 
+        "not working", "failed", "reversal", "credited",
+          "debited", "real time", "slow transfer"
     ],
     "Security": [
         "password", "otp", "verification", "secure", "locked",
-        "authentication"
+        "authentication", "login", "log in", "access",   
+        "pin", "blocked", "fail to login",  "credential"
     ]
 }
 
